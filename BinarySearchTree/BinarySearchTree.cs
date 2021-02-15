@@ -67,6 +67,7 @@ namespace BinarySearchTree
         }
         public bool IfExists(T element, BinarySearchTree<T> node)
         {
+            bool result = false;
             if (node == null)
             {
                 return false;
@@ -74,13 +75,21 @@ namespace BinarySearchTree
             if (node.NodeData.Equals(element))
             {
                 Console.WriteLine("Found the element in BST :" + node.NodeData);
-                return true;
+                result = true;
             }
             else
             {
                 Console.WriteLine("Current element in BST is :" + node.NodeData);
             }
-            
+            if (element.CompareTo(node.NodeData) < 0)
+            {
+                IfExists(element, node.LeftTree);
+            }
+            if (element.CompareTo(node.NodeData) > 0)
+            {
+                IfExists(element, node.RightTree);
+            }
+            return result;
         }
     }
 }
