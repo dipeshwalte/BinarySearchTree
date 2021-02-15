@@ -24,6 +24,7 @@ namespace BinarySearchTree
             binarySearchTree.Insert(67);
             binarySearchTree.Display();
             Console.WriteLine("------------------------");
+            binarySearchTree.IfExists(67,binarySearchTree);
         }
     }
 }
